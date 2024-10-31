@@ -7,24 +7,27 @@
 				<hr>
 				<div x-data="{ isActive: false, open: false}">
 					<li class="mt-4">
-						<button type="button" class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700" aria-controls="dropdown-example" data-collapse-toggle="dropdown-example">
-							<img src="images/categories.png" class="w-6 h-6" alt="">
-							<span class="flex-1 ms-3 text-left rtl:text-right whitespace-nowrap">Category Data</span>
-					</li>	 
+							<a href="/admin/data-category">
+							<button type="button" class="flex items-center w-full p-2 text-base text-gray-900 transition duration-75 rounded-lg group hover:bg-gray-100 dark:text-white dark:hover:bg-gray-700" aria-controls="dropdown-example" data-collapse-toggle="dropdown-example">
+								<img src="images/categories.png" class="w-6 h-6" alt="">
+								<span class="flex-1 ms-3 text-left rtl:text-right whitespace-nowrap">Category Data</span>
+							</button>
+							</a> 
+						</li>	
+						<li class="mt-4">
+							<a href="/admin/data-electrical" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+								<img src="images/electrical.png" alt="" class="w-6 h-6"> <!-- Adjust width and height here -->
+								<span class="flex-1 ms-3 whitespace-nowrap">Electricity Data</span>
+							</a>
+						</li>					
 					<li class="mt-4">
-						<a href="#" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-							<img src="images/electrical.png" alt="" class="w-6 h-6"> <!-- Adjust width and height here -->
-							<span class="flex-1 ms-3 whitespace-nowrap">Electricity Data</span>
-						</a>
-					</li>					
-					<li class="mt-4">
-						<a href="/laporan" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+						<a href="/admin/data-equipment" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
 							<img src="images/equipment.png" class="w-6 h-6" alt="">
 								<span class="flex-1 ms-3 whitespace-nowrap">Equipment Data</span>
 						</a>
 					</li>
-					<li class="mt-4"	>
-						<a href="/member" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+					<li class="mt-4">
+						<a href="/admin/data-user" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
 							<img src="images/user.png" class="w-6 h-6" alt="">
 								<span class="flex-1 ms-3 whitespace-nowrap">User Data</span>
 						</a>
