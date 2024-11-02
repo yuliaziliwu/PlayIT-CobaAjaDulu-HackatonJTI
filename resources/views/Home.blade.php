@@ -15,6 +15,7 @@
             scroll-behavior: smooth;
         }
     </style>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 
 <body>
@@ -241,8 +242,8 @@
 
         <!-- Cost Display -->
         <div class="max-w-xs">
-            <label for="cost" class="block mb-2 text-sm font-semibold text-gray-900 dark:text-white">Cost kWH / Day</label>
-            <input type="text" id="cost" class="block w-full p-2 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-200 dark:bg-gray-700 dark:border-gray-600 dark:text-white" value="0.00" disabled>
+            <label for="cost" class="block mb-2 text-sm font-semibold text-gray-900 dark:text-white">Cost per kWh</label>
+            <input type="text" value="1000.00" id="cost" class="block w-full p-2 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-200 dark:bg-gray-700 dark:border-gray-600 dark:text-white" disabled>
         </div>
 
         <div class="max-w-xs">
@@ -296,7 +297,7 @@
             Add more Appliance
         </button>
 
-        <button class="p-2 text-sm font-semibold text-[#FF735C] border border-[#FF735C] rounded-lg hover:bg-[#FF735C] hover:text-white focus:outline-none focus:ring-2 focus:ring-[#FF735C]/50">
+        <button id="calculate-btn" class="p-2 text-sm font-semibold text-[#FF735C] border border-[#FF735C] rounded-lg hover:bg-[#FF735C] hover:text-white focus:outline-none focus:ring-2 focus:ring-[#FF735C]/50">
             Click Here For Recommendation Usage
         </button>
     </div>
@@ -307,6 +308,12 @@
             <span class="mx-4 text-3xl font-semibold text-gray-700 leading-tight">Recommendation Usage</span>
             <hr class="flex-grow border-t border-gray-300" />
         </div>
+        <div class="flex flex-wrap gap-x-4 mt-10">
+            <div id="recommendation-results" class="w-full"></div>
+        </div>
+        <div class="flex justify-center">
+            @include('components.graph-bar')
+        </div>
     </div>
 
 
@@ -316,7 +323,7 @@
         <div class="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
             <div class="md:flex md:justify-between">
                 <div class="mb-6 md:mb-0 ml-28">
-                    <a href="https://flowbite.com/" class="flex items-center">
+                    <a href="#" class="flex items-center">
                         <img src="images/logo.svg" class="h-8 me-3" alt="EcoSaver Logo" />
                         <span class="self-center text-2xl font-semibold whitespace-nowrap text-white" style="font-family: 'Keania One', sans-serif;">EcoSaver</span>
                     </a>
@@ -390,6 +397,7 @@
 
 
     <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
     <!-- Function API dropdown VA  -->
@@ -575,6 +583,249 @@
             // Event listener untuk tombol resetAppliance
             document.getElementById("resetAppliance").addEventListener("click", resetApplianceInputs);
         });
+    </script>
+
+    <!-- Script untuk menampilkan klasifikasi penggunaan perangkat -->
+    <script>
+        document.getElementById('calculate-btn').addEventListener('click', function() {
+            // Bersihkan hasil lama setiap kali tombol diklik
+            const resultsContainer = document.getElementById('recommendation-results');
+            resultsContainer.innerHTML = ''; // Bersihkan hasil lama
+    
+            // Ambil nilai dari inputan "Cost per kWh"
+            const costPerKwh = document.getElementById('cost').value;
+    
+            // Ambil semua inputan dari form
+            const appliances = document.querySelectorAll('.appliance-group');
+            const userInput = [];
+    
+            appliances.forEach(appliance => {
+                const applianceName = appliance.querySelector('select[id^="house-type"]').selectedOptions[0].text;
+                const applianceCount = parseInt(appliance.querySelector('input[id^="appliance-count"]').value) || 0; // Ensure it's a number
+                const wattage = parseInt(appliance.querySelector('input[id^="wattage"]').value) || 0; // Ensure it's a number
+                const hoursPerDay = parseInt(appliance.querySelector('input[id^="hours-per-day"]').value) || 0; // Ensure it's a number
+                const usePerMonth = parseInt(appliance.querySelector('input[id^="use-per-month"]').value) || 0; // Ensure it's a number
+    
+                // Check if all required fields are filled
+                if (applianceCount && wattage && hoursPerDay && usePerMonth) {
+                    // Push the appliance data to the userInput array without aggregation
+                    userInput.push({
+                        name: applianceName,
+                        inputCount: applianceCount,
+                        inputDaya: wattage,
+                        inputDurasi: hoursPerDay,
+                        inputPerBulan: usePerMonth
+                    });
+                }
+            });
+    
+            // Check if userInput is empty
+            if (userInput.length === 0) {
+                // Display a message if no appliances are input
+                const noInputMessage = document.createElement('div');
+                noInputMessage.className = "flex justify-center block p-4 text-base font-semibold text-red-700 bg-red-100 border border-red-300 rounded-lg";
+                noInputMessage.innerHTML = "Silakan pilih data perangkat sebelum menghitung.";
+                resultsContainer.appendChild(noInputMessage);
+                return; // Stop further execution
+            }
+    
+            // Kirim data ke Laravel, termasuk nilai "Cost per kWh"
+            axios.post('/api/calculate', {
+                userInput: userInput,
+                costPerKwh: costPerKwh // Tambahkan nilai "Cost per kWh"
+            })
+            .then(response => {
+                console.log(response.data); // Lakukan sesuatu dengan hasil response
+    
+                // Tampilkan hasil di bagian recommendation-results
+                response.data.results.forEach(result => {
+                    // Buat elemen div untuk setiap perangkat
+                    const resultItem = document.createElement('div');
+                    resultItem.classList.add("appliance-group", "flex", "items-start", "gap-x-4");
+    
+                    // Tambahkan input untuk nama perangkat
+                    const nameInput = document.createElement('input');
+                    nameInput.type = "text";
+                    nameInput.disabled = true;
+                    nameInput.className = "block w-full p-2 mb-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50";
+                    nameInput.value = result.nama_perangkat;
+    
+                    // Tambahkan input untuk daya
+                    const dayaInput = document.createElement('input');
+                    dayaInput.type = "text";
+                    dayaInput.disabled = true;
+                    dayaInput.className = "block w-full p-2 mb-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50";
+                    dayaInput.value = `Daya: ${result.inputDaya} W`;
+    
+                    // Tambahkan input untuk durasi
+                    const durasiInput = document.createElement('input');
+                    durasiInput.type = "text";
+                    durasiInput.disabled = true;
+                    durasiInput.className = "block w-full p-2 mb-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50";
+                    durasiInput.value = `Durasi: ${result.inputDurasi} jam`;
+    
+                    // Tambahkan input untuk jumlah perangkat
+                    const countInput = document.createElement('input');
+                    countInput.type = "text";
+                    countInput.disabled = true;
+                    countInput.className = "block w-full p-2 mb-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50";
+                    countInput.value = `Jumlah: ${result.inputCount}`;
+    
+                    const usePerMonthInput = document.createElement('input');
+                    usePerMonthInput.type = "text";
+                    usePerMonthInput.disabled = true;
+                    usePerMonthInput.className = "block w-full p-2 mb-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50";
+                    usePerMonthInput.value = `Frekuensi /bulan: ${result.inputPerBulan}`; // Display the usePerMonth value
+    
+                    // Tambahkan input untuk klasifikasi
+                    const classificationInput = document.createElement('input');
+                    classificationInput.type = "text";
+                    classificationInput.disabled = true;
+                    classificationInput.className = `block w-full p-2 mb-4 text-sm text-gray-900 border border-gray-300 rounded-lg ${result.classification === 'Bijak' ? 'bg-green-200' : 'bg-red-200'}`;
+                    classificationInput.value = `Klasifikasi: ${result.classification}`;
+    
+                    // Tambahkan semua elemen input ke dalam resultItem
+                    resultItem.appendChild(nameInput);
+                    resultItem.appendChild(dayaInput);
+                    resultItem.appendChild(durasiInput);
+                    resultItem.appendChild(countInput);
+                    resultItem.appendChild(usePerMonthInput);
+                    resultItem.appendChild(classificationInput);
+    
+                    // Tambahkan resultItem ke resultsContainer
+                    resultsContainer.appendChild(resultItem);
+    
+                    // Tambahkan rekomendasi di luar resultItem jika klasifikasi adalah "Tidak Bijak"
+                    if (result.classification === 'Tidak Bijak' && result.recommendation) {
+                        const recommendationText = document.createElement('p');
+                        recommendationText.className = "block p-2 mb-4 text-sm text-gray-900 bg-yellow-100 border border-yellow-300 rounded-lg";
+                        
+                        // Gunakan innerHTML agar tag <b> di dalam rekomendasi dirender sebagai HTML
+                        recommendationText.innerHTML = result.recommendation;
+    
+                        // Tambahkan recommendationText setelah resultItem
+                        resultsContainer.appendChild(recommendationText);
+                    }
+                });
+    
+                // Tampilkan total cost dan total kWh
+                const totalCostItem = document.createElement('div');
+                totalCostItem.className = "total-cost block p-4 mt-6 text-base font-semibold text-gray-900 bg-blue-100 border border-blue-300 rounded-lg";
+                totalCostItem.innerHTML = `
+                    Total Pengeluaran Bulanan: <b>Rp ${response.data.totalCost.toLocaleString()}</b><br>
+                    Total Kwh Bulanan: <b>${response.data.totalKwh.toLocaleString()}</b> kWh
+                `; // Format totalCost and totalKwh
+    
+                // Tambahkan totalCostItem ke resultsContainer
+                resultsContainer.appendChild(totalCostItem);
+    
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    
+        });
+    </script>
+    
+    <script>
+        const options = {
+        colors: ["#1A56DB", "#FDBA8C"],
+        series: [
+            {
+            name: "Total konsumsi",
+            color: "#f87171",
+            data: [
+                { x: "Konsumsi Energi", y: 8799 },
+            ],
+            },
+            {
+            name: "Konsumsi alternatif",
+            color: "#4ade80",
+            data: [
+                { x: "Konsumsi Energi", y: 3452 },
+            ],
+            },
+        ],
+        chart: {
+            type: "bar",
+            height: "320px",
+            fontFamily: "Inter, sans-serif",
+            toolbar: {
+            show: false,
+            },
+        },
+        plotOptions: {
+            bar: {
+            horizontal: false,
+            columnWidth: "70%",
+            borderRadiusApplication: "end",
+            borderRadius: 8,
+            },
+        },
+        tooltip: {
+            shared: true,
+            intersect: false,
+            style: {
+            fontFamily: "Inter, sans-serif",
+            },
+        },
+        states: {
+            hover: {
+            filter: {
+                type: "darken",
+                value: 1,
+            },
+            },
+        },
+        stroke: {
+            show: true,
+            width: 0,
+            colors: ["transparent"],
+        },
+        grid: {
+            show: false,
+            strokeDashArray: 4,
+            padding: {
+            left: 2,
+            right: 2,
+            top: -14
+            },
+        },
+        dataLabels: {
+            enabled: false,
+        },
+        legend: {
+            show: false,
+        },
+        xaxis: {
+            floating: false,
+            labels: {
+            show: true,
+            style: {
+                fontFamily: "Inter, sans-serif",
+                cssClass: 'text-xs font-normal fill-gray-500 dark:fill-gray-400'
+            }
+            },
+            axisBorder: {
+            show: false,
+            },
+            axisTicks: {
+            show: false,
+            },
+        },
+        yaxis: {
+            show: false,
+        },
+        fill: {
+            opacity: 1,
+        },
+        }
+
+        if(document.getElementById("column-chart") && typeof ApexCharts !== 'undefined') {
+        const chart = new ApexCharts(document.getElementById("column-chart"), options);
+        chart.render();
+        }
+
     </script>
 </body>
 

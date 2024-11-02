@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\DSSController;
 use App\Http\Controllers\Api\KategoriController;
 use App\Http\Controllers\Api\PerangkatListrikController;
 use App\Http\Controllers\Api\StandarListrikController;
@@ -45,3 +46,4 @@ Route::get('/test', function () {
 
 
 
+Route::post('/calculate', [DSSController::class, 'calculate']);

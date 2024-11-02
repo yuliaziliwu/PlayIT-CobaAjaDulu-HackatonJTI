@@ -8,13 +8,18 @@ use Illuminate\Database\Eloquent\Model;
 class PerangkatListrik extends Model
 {
     use HasFactory;
-
+    
     protected $table = 'perangkat_listrik';
     protected $primaryKey = 'id_perangkat';
-    protected $fillable = ['kategori_id', 'nama_perangkat', 'daya'];
-
+    
+    protected $fillable = [
+        'kategori_id',
+        'nama_perangkat',
+        'daya',
+    ];
+    
     public function kategori()
     {
-        return $this->belongsTo(Kategori::class, 'kategori_id', 'id_kategori');
+        return $this->belongsTo(Kategori::class, 'kategori_id');
     }
 }
