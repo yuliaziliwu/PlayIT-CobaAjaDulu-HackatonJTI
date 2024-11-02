@@ -23,19 +23,22 @@ class CreateEnergyConsumptionTables extends Migration
             $table->foreignId('kategori_id')->constrained('kategori', 'id_kategori');  // Foreign Key ke tabel kategori
             $table->string('nama_perangkat', 100);  // Nama perangkat
             $table->integer('daya');  // Konsumsi daya perangkat dalam watt
+            $table->timestamps();
         });
 
         Schema::create('bobot_kriteria', function (Blueprint $table) {
             $table->id('id_kriteria');  // Kolom id_bobot sebagai Primary Key
             $table->string('kriteria', 100);  // kriteria
             $table->float('bobot');  // Bobot
+            $table->timestamps();
         });
 
         // Tabel standar_listrik
         Schema::create('standar_listrik', function (Blueprint $table) {
             $table->id('id_standar_listrik');  // Kolom id_standar_listrik sebagai Primary Key
             $table->integer('daya_maksimum');  // Daya maksimum dalam watt
-            $table->float('tarif_per_kwh');  // Daya maksimum dalam watt
+            $table->integer('tarif_per_kwh');  // Daya maksimum dalam watt
+            $table->timestamps();
             // Tidak ada foreign key yang ditambahkan
         });
 
@@ -46,6 +49,7 @@ class CreateEnergyConsumptionTables extends Migration
             $table->string('email')->unique();  // Email pengguna, harus unik
             $table->string('provider')->default('gmail');  // Provider autentikasi, default ke Gmail
             $table->string('provider_id');  // ID pengguna di provider (misal: Google)
+            $table->timestamps();
         });
     }
 

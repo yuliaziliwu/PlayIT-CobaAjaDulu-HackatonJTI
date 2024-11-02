@@ -23,7 +23,7 @@
 		  <div class="flex items-center justify-between">
 			<div class="flex items-center justify-start rtl:justify-end">
 				<a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
-					<img src="images/logo.svg" class="h-8" alt="Flowbite Logo" />
+					<img src="../images/logo.svg" class="h-8" alt="Flowbite Logo" />
 					<span class="self-center text-2xl font-semibold whitespace-nowrap text-white" style="font-family: 'Keania One', sans-serif;">EcoSaver</span>
 				</a>
 			</div>
@@ -47,6 +47,9 @@
 		</div>
 	</div>
 </nav>
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </body>
   
 

@@ -21,7 +21,7 @@
     <nav class="border-gray-200" style="background-color: #FF735C;">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
             <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
-                <img src="images/logo.svg" class="h-8" alt="Flowbite Logo" />
+                <img src="images/logo.svg" class="h-8" alt="Flowbite Logo"/>
                 <span class="self-center text-2xl font-semibold whitespace-nowrap text-white" style="font-family: 'Keania One', sans-serif;">EcoSaver</span>
             </a>
             <div class="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
@@ -285,7 +285,7 @@
             <!-- Use per Month -->
             <div>
                 <label for="use-per-month" class="block mb-2 text-sm font-semibold text-gray-900 dark:text-white">Use / Month</label>
-                <input type="number" id="use-per-month" class="block w-full p-2 mb-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Times per month" min="0">
+                <input type="number" id="use-per-month" class="block w-full p-2 mb-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Times per month" min="0"" >
             </div>
         </div>
     </div>
