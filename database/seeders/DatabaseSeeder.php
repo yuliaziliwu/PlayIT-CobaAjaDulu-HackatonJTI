@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
             PerangkatListrikSeeder::class,
             StandarListrikSeeder::class,
             BobotKriteriaSeeder::class,
+            UsersSeeder::class,
         ]);
     }
     

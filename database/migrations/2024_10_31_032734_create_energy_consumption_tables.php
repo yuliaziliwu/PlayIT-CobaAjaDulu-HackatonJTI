@@ -39,13 +39,12 @@ class CreateEnergyConsumptionTables extends Migration
             // Tidak ada foreign key yang ditambahkan
         });
 
-        // Tabel pengguna
-        Schema::create('pengguna', function (Blueprint $table) {
-            $table->id('id_pengguna');  // Kolom id_pengguna sebagai Primary Key
-            $table->string('nama_lengkap', 100);  // Nama lengkap pengguna
-            $table->string('email')->unique();  // Email pengguna, harus unik
-            $table->string('provider')->default('gmail');  // Provider autentikasi, default ke Gmail
-            $table->string('provider_id');  // ID pengguna di provider (misal: Google)
+        Schema::create('users', function (Blueprint $table) {
+            $table->id(); // Creates an auto-incrementing primary key
+            $table->string('name'); // Name of the admin
+            $table->string('email')->unique(); // Admin email, must be unique
+            $table->string('password'); // Password for admin account
+            $table->timestamps(); // Created at and updated at timestamps
         });
     }
 
@@ -55,5 +54,6 @@ class CreateEnergyConsumptionTables extends Migration
         Schema::dropIfExists('standar_listrik');
         Schema::dropIfExists('perangkat_listrik');
         Schema::dropIfExists('kategori');
+        Schema::dropIfExists('users');
     }
 }
