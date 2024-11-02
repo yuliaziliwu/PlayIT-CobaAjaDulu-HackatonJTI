@@ -10,7 +10,7 @@ class StandarListrikController extends Controller
     // Menampilkan semua standar listrik
     public function index()
     {
-        $standar = StandarListrik::select('daya_maksimum')->get(); // Mengambil hanya daya_maksimum
+        $standar = StandarListrik::all(); // Mengambil hanya daya_maksimum
         return response()->json($standar);
     }
 

@@ -20,36 +20,11 @@
 <body>
     <nav class="border-gray-200" style="background-color: #FF735C;">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-            <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
+            <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
                 <img src="images/logo.svg" class="h-8" alt="Flowbite Logo" />
                 <span class="self-center text-2xl font-semibold whitespace-nowrap text-white" style="font-family: 'Keania One', sans-serif;">EcoSaver</span>
             </a>
             <div class="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-                <button type="button" class="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
-                    <span class="sr-only">Open user menu</span>
-                    <img class="w-8 h-8 rounded-full" src="/docs/images/people/profile-picture-3.jpg" alt="user photo">
-                </button>
-                <!-- Dropdown menu -->
-                <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600" id="user-dropdown">
-                    <div class="px-4 py-3">
-                        <span class="block text-sm text-gray-900 dark:text-white">Bonnie Green</span>
-                        <span class="block text-sm text-gray-500 truncate dark:text-gray-400">name@flowbite.com</span>
-                    </div>
-                    <ul class="py-2" aria-labelledby="user-menu-button">
-                        <li>
-                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Dashboard</a>
-                        </li>
-                        <li>
-                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Settings</a>
-                        </li>
-                        <li>
-                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Earnings</a>
-                        </li>
-                        <li>
-                            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out</a>
-                        </li>
-                    </ul>
-                </div>
                 <button data-collapse-toggle="navbar-user" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-user" aria-expanded="false">
                     <span class="sr-only">Open main menu</span>
                     <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
@@ -234,14 +209,13 @@
         <div class="max-w-xs">
             <label for="va" class="block mb-2 text-sm font-semibold text-gray-900 dark:text-white">Select VA</label>
             <select id="va" class="block w-full p-2 mb-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                <option selected>Select VA</option>
             </select>
         </div>
 
         <!-- Cost Display -->
         <div class="max-w-xs md:justify-center">
             <label for="cost" class="block mb-2 text-sm font-semibold text-gray-900 dark:text-white">Cost per kWh</label>
-            <input type="text" value="1000.00" id="cost" class="block w-full p-2 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-200 dark:bg-gray-700 dark:border-gray-600 dark:text-white" disabled>
+            <input type="text" value="0.00" id="cost" class="block w-full p-2 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-200 dark:bg-gray-700 dark:border-gray-600 dark:text-white" disabled>
         </div>
 
         <div class="max-w-xs md:justify-center">
@@ -398,36 +372,58 @@
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
-    <!-- Function API dropdown VA  -->
     <script>
         // Fungsi untuk mengambil data dari API dan mengisi dropdown
         async function loadDayaMaksimum() {
             try {
-                // Ambil data dari API menggunakan axios
                 const response = await axios.get('http://localhost:8000/api/standar-listrik/index');
                 const data = response.data;
-
-                // Dapatkan elemen dropdown
+    
                 const vaSelect = document.getElementById('va');
-
-                // Hapus opsi default "Select VA"
-                vaSelect.innerHTML = '<option selected>Select VA</option>';
-
+                vaSelect.innerHTML = '<option selected disabled>Select VA</option>';
+    
                 // Tambahkan opsi dari data API
                 data.forEach(item => {
                     const option = document.createElement('option');
-                    option.value = item.daya_maksimum;
+                    option.value = item.daya_maksimum; // Simpan daya maksimum sebagai nilai opsi
+                    option.dataset.tarif = item.tarif_per_kwh; // Simpan tarif per kWh sebagai data atribut
                     option.textContent = `${item.daya_maksimum} VA`;
                     vaSelect.appendChild(option);
+                });
+    
+                // Secara otomatis pilih opsi pertama setelah dropdown diisi
+                if (data.length > 0) {
+                    vaSelect.value = data[0].daya_maksimum; // Atur nilai dropdown ke daya maksimum pertama
+                    const selectedOption = vaSelect.options[vaSelect.selectedIndex]; // Ambil opsi yang dipilih
+                    const costInput = document.getElementById('cost');
+                    const tarifPerKwh = parseFloat(selectedOption.dataset.tarif);
+                    
+                    // Update nilai input cost berdasarkan tarif per kWh
+                    costInput.value = isNaN(tarifPerKwh) ? '0.00' : tarifPerKwh.toFixed(2); // Format menjadi dua desimal
+                }
+    
+                // Tambahkan event listener untuk mengubah cost saat memilih VA
+                vaSelect.addEventListener('change', function() {
+                    const selectedOption = this.options[this.selectedIndex]; // Dapatkan opsi yang dipilih
+                    const costInput = document.getElementById('cost');
+    
+                    // Ambil tarif per kWh dari data atribut opsi yang dipilih
+                    const tarifPerKwh = parseFloat(selectedOption.dataset.tarif);
+                    
+                    // Debugging: log nilai yang dipilih dan tarif per kWh
+                    console.log(`Selected Daya: ${this.value}, Tarif per kWh: ${selectedOption.dataset.tarif}`);
+    
+                    // Update nilai input cost berdasarkan tarif per kWh
+                    costInput.value = isNaN(tarifPerKwh) ? '0.00' : tarifPerKwh.toFixed(2); // Format menjadi dua desimal
                 });
             } catch (error) {
                 console.error('Error fetching daya maksimum data:', error);
             }
         }
-
-        // Panggil fungsi ketika halaman selesai dimuat
+    
         document.addEventListener('DOMContentLoaded', loadDayaMaksimum);
     </script>
+    
 
     <!-- function API Appliance database  -->
     <script>
@@ -587,12 +583,19 @@
     <!-- Script untuk menampilkan klasifikasi penggunaan perangkat -->
     <script>
         document.getElementById('calculate-btn').addEventListener('click', function() {
+            // Ambil nilai dari inputan "Cost per kWh"
+            const costPerKwh = document.getElementById('cost').value;
+    
+            // Periksa apakah costPerKwh adalah "0.00"
+            if (costPerKwh === '0.00') {
+                // Tampilkan peringatan jika cost per kWh adalah 0
+                alert("Cost per kWh tidak boleh 0. Silakan periksa pengaturan daya listrik.");
+                return; // Hentikan eksekusi lebih lanjut
+            }
+    
             // Bersihkan hasil lama setiap kali tombol diklik
             const resultsContainer = document.getElementById('recommendation-results');
             resultsContainer.innerHTML = ''; // Bersihkan hasil lama
-    
-            // Ambil nilai dari inputan "Cost per kWh"
-            const costPerKwh = document.getElementById('cost').value;
     
             // Ambil semua inputan dari form
             const appliances = document.querySelectorAll('.appliance-group');
@@ -722,9 +725,8 @@
             .catch(error => {
                 console.error('Error:', error);
             });
-    
         });
-    </script>
+    </script>    
     
     <script>
         // const options = {

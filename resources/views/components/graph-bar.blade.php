@@ -1,4 +1,4 @@
-<div class="max-w-sm w-full mt-5 bg-white rounded-lg shadow dark:bg-gray-800 p-4 md:p-6">
+{{-- <div class="max-w-sm w-full mt-5 bg-white rounded-lg shadow dark:bg-gray-800 p-4 md:p-6">
     <div class="flex justify-center pb-4 mb-4 border-b border-gray-200 dark:border-gray-700">
         
         <div>
@@ -20,4 +20,4 @@
     </div>
 
     <div id="column-chart" class="flex justify-center"></div>
-</div>
+</div> --}}
