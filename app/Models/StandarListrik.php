@@ -11,5 +11,5 @@ class StandarListrik extends Model
 
     protected $table = 'standar_listrik';
     protected $primaryKey = 'id_standar_listrik';
-    protected $fillable = ['tipe_rumah', 'daya_maksimum'];
+    protected $fillable = ['daya_maksimum'];
 }

@@ -10,9 +10,9 @@ class StandarListrikSeeder extends Seeder
     public function run()
     {
         DB::table('standar_listrik')->insert([
-            ['tipe_rumah' => 'Type 36', 'daya_maksimum' => 1300],
-            ['tipe_rumah' => 'Type 45', 'daya_maksimum' => 2200],
-            ['tipe_rumah' => 'Type 70', 'daya_maksimum' => 3500],
+            ['daya_maksimum' => 1300],
+            ['daya_maksimum' => 2200],
+            ['daya_maksimum' => 3500],
         ]);
     }
 }

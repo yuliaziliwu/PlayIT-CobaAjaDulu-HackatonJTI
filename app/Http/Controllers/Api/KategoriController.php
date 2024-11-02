@@ -11,7 +11,8 @@ class KategoriController extends Controller
     // Menampilkan semua kategori
     public function index()
     {
-        $kategori = Kategori::all();
+        // Mengambil kategori dengan perangkat listriknya
+        $kategori = Kategori::with('perangkatListrik')->get();
         return response()->json($kategori);
     }
 

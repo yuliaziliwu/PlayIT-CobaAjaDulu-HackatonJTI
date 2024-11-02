@@ -10,7 +10,7 @@ class StandarListrikController extends Controller
     // Menampilkan semua standar listrik
     public function index()
     {
-        $standar = StandarListrik::all();
+        $standar = StandarListrik::select('daya_maksimum')->get(); // Mengambil hanya daya_maksimum
         return response()->json($standar);
     }
 
@@ -19,12 +19,11 @@ class StandarListrikController extends Controller
     {
         // Validasi input
         $request->validate([
-            'tipe_rumah' => 'required|string|max:50',
             'daya_maksimum' => 'required|integer',
         ]);
 
-        // Menyimpan standar listrik baru
-        $standar = StandarListrik::create($request->only(['tipe_rumah', 'daya_maksimum']));
+        // Menyimpan standar listrik baru dengan hanya daya_maksimum
+        $standar = StandarListrik::create($request->only(['daya_maksimum']));
 
         return response()->json($standar, 201);
     }
@@ -32,7 +31,7 @@ class StandarListrikController extends Controller
     // Menampilkan standar listrik berdasarkan ID
     public function show($id)
     {
-        $standar = StandarListrik::find($id);
+        $standar = StandarListrik::select('daya_maksimum')->find($id); // Mengambil hanya daya_maksimum
 
         if (!$standar) {
             return response()->json(['error' => 'Standar listrik tidak ditemukan'], 404);
@@ -51,11 +50,10 @@ class StandarListrikController extends Controller
         }
 
         $request->validate([
-            'tipe_rumah' => 'sometimes|required|string|max:50',
             'daya_maksimum' => 'sometimes|required|integer',
         ]);
 
-        $standar->update($request->only(['tipe_rumah', 'daya_maksimum']));
+        $standar->update($request->only(['daya_maksimum']));
 
         return response()->json($standar, 200);
     }

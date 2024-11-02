@@ -27,7 +27,6 @@ class CreateEnergyConsumptionTables extends Migration
         // Tabel standar_listrik
         Schema::create('standar_listrik', function (Blueprint $table) {
             $table->id('id_standar_listrik');  // Kolom id_standar_listrik sebagai Primary Key
-            $table->string('tipe_rumah', 50);  // Nama tipe rumah, misal: "Type 45"
             $table->integer('daya_maksimum');  // Daya maksimum dalam watt
             
             // Tidak ada foreign key yang ditambahkan

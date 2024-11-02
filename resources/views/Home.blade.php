@@ -230,30 +230,12 @@
         </div>
     </div>
 
-
-
     <div class="flex items-start gap-x-4 ml-14 mt-10">
-        <!-- House Type Selection -->
-        <div class="max-w-xs">
-            <label for="house-type" class="block mb-2 text-sm font-semibold text-gray-900 dark:text-white">Select Your House Type</label>
-            <select id="house-type" class="block w-full p-2 mb-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                <option selected>Choose a house type</option>
-                <option value="apartment">Apartment</option>
-                <option value="detached">Detached House</option>
-                <option value="semi-detached">Semi-Detached House</option>
-                <option value="townhouse">Townhouse</option>
-            </select>
-        </div>
-
         <!-- VA Selection -->
         <div class="max-w-xs">
             <label for="va" class="block mb-2 text-sm font-semibold text-gray-900 dark:text-white">Select VA</label>
             <select id="va" class="block w-full p-2 mb-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                 <option selected>Select VA</option>
-                <option value="450">450 VA</option>
-                <option value="900">900 VA</option>
-                <option value="1300">1300 VA</option>
-                <option value="2200">2200 VA</option>
             </select>
         </div>
 
@@ -262,75 +244,55 @@
             <label for="cost" class="block mb-2 text-sm font-semibold text-gray-900 dark:text-white">Cost kWH / Day</label>
             <input type="text" id="cost" class="block w-full p-2 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-200 dark:bg-gray-700 dark:border-gray-600 dark:text-white" value="0.00" disabled>
         </div>
+
+        <div class="max-w-xs">
+            <label for="resetAppliance" class="block mb-2 text-sm font-semibold text-center text-gray-900 dark:text-white">!#!</label>
+            <button id="resetAppliance" class="block w-full p-2 text-sm font-semibold text-white bg-blue-500 rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+                Reset
+            </button>
+        </div>
     </div>
 
+    <div id="appliance-container" class="flex flex-wrap gap-x-4 ml-14 mt-10">
+        <div class="appliance-group flex items-start gap-x-4">
+            <!-- House Type Selection -->
+            <div class="max-w-xs">
+                <label for="house-type" class="block mb-2 text-sm font-semibold text-gray-900 dark:text-white">Appliance</label>
+                <select id="house-type" class="block w-full p-2 mb-4 text-sm border rounded-lg bg-white focus:ring-2 focus:ring-gray-300 focus:border-gray-300 hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-50 dark:focus:ring-gray-600 dark:focus:border-gray-600">
+                    <option selected class="text-gray-500 dark:text-gray-400">Choose an appliance</option>
+                    <!-- Optgroups dan opsi akan diisi secara dinamis di sini -->
+                </select>
+            </div>
 
-    <div class="flex items-start gap-x-4 ml-14 mt-10">
-        <!-- House Type Selection -->
-        <div class="max-w-xs">
-            <label for="house-type" class="block mb-2 text-sm font-semibold text-gray-900 dark:text-white">Appliance</label>
-            <select id="house-type" class="block w-full p-2 mb-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                <option selected>Choose an appliance</option>
-                <option value="fridge">Refrigerator</option>
-                <option value="ac">Air Conditioner</option>
-                <option value="washing-machine">Washing Machine</option>
-                <option value="tv">Television</option>
-                <!-- Add more options as needed -->
-            </select>
-            <select id="house-type" class="block w-full p-2 mb-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                <option selected>Choose an appliance</option>
-                <option value="fridge">Refrigerator</option>
-                <option value="ac">Air Conditioner</option>
-                <option value="washing-machine">Washing Machine</option>
-                <option value="tv">Television</option>
-                <!-- Add more options as needed -->
-            </select>
-            <select id="house-type" class="block w-full p-2 mb-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                <option selected>Choose an appliance</option>
-                <option value="fridge">Refrigerator</option>
-                <option value="ac">Air Conditioner</option>
-                <option value="washing-machine">Washing Machine</option>
-                <option value="tv">Television</option>
-                <!-- Add more options as needed -->
-            </select>
-        </div>
+            <!-- Number of Appliances -->
+            <div>
+                <label for="appliance-count" class="block mb-2 text-sm font-semibold text-gray-900 dark:text-white"># of Appliances</label>
+                <input type="number" id="appliance-count" class="block w-full p-2 mb-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter count" min="1">
+            </div>
 
-        <!-- Number of Appliances -->
-        <div class="max-w-36">
-            <label for="appliance-count" class="block mb-2 text-sm font-semibold text-gray-900 dark:text-white"># of Appliances</label>
-            <input type="number" id="appliance-count" class="block w-full p-2 mb-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter count" min="1">
-            <input type="number" id="appliance-count" class="block w-full p-2 mb-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter count" min="1">
-            <input type="number" id="appliance-count" class="block w-full p-2 mb-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter count" min="1">
-        </div>
+            <!-- Wattage (W) - Disabled Input -->
+            <div>
+                <label for="wattage" class="block mb-2 text-sm font-semibold text-gray-900 dark:text-white">Wattage (W)</label>
+                <input type="number " id="wattage" class="block w-full p-2 mb-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" placeholder="Auto-fill wattage" min="1">
+            </div>
 
-        <!-- Wattage (W) - Disabled Input -->
-        <div class="max-w-36">
-            <label for="wattage" class="block mb-2 text-sm font-semibold text-gray-900 dark:text-white">Wattage (W)</label>
-            <input type="text" id="wattage" class="block w-full p-2 mb-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" placeholder="Auto-fill wattage" disabled>
-            <input type="text" id="wattage" class="block w-full p-2 mb-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" placeholder="Auto-fill wattage" disabled>
-            <input type="text" id="wattage" class="block w-full p-2 mb-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" placeholder="Auto-fill wattage" disabled>
-        </div>
+            <!-- Hours per Day -->
+            <div>
+                <label for="hours-per-day" class="block mb-2 text-sm font-semibold text-gray-900 dark:text-white">Hrs / Day</label>
+                <input type="number" id="hours-per-day" class="block w-full p-2 mb-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Hours per day" min="0" max="24">
+            </div>
 
-        <!-- Hours per Day -->
-        <div class="max-w-36">
-            <label for="hours-per-day" class="block mb-2 text-sm font-semibold text-gray-900 dark:text-white">Hrs / Day</label>
-            <input type="number" id="hours-per-day" class="block w-full p-2 mb-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Hours per day" min="0">
-            <input type="number" id="hours-per-day" class="block w-full p-2 mb-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Hours per day" min="0">
-            <input type="number" id="hours-per-day" class="block w-full p-2 mb-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Hours per day" min="0">
-        </div>
-
-        <!-- Use per Month -->
-        <div class="max-w-36">
-            <label for="use-per-month" class="block mb-2 text-sm font-semibold text-gray-900 dark:text-white">Use / Month</label>
-            <input type="number" id="use-per-month" class="block w-full p-2 mb-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Times per month" min="0">
-            <input type="number" id="use-per-month" class="block w-full p-2 mb-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Times per month" min="0">
-            <input type="number" id="use-per-month" class="block w-full p-2 mb-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Times per month" min="0">
+            <!-- Use per Month -->
+            <div>
+                <label for="use-per-month" class="block mb-2 text-sm font-semibold text-gray-900 dark:text-white">Use / Month</label>
+                <input type="number" id="use-per-month" class="block w-full p-2 mb-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Times per month" min="0">
+            </div>
         </div>
     </div>
 
     <!-- Buttons Section -->
     <div class="ml-14 mt-4 flex gap-x-4">
-        <button class="p-2 text-sm font-semibold text-white bg-[#FF735C] rounded-lg hover:bg-[#FF735C]/90 focus:outline-none focus:ring-2 focus:ring-[#FF735C]/50 dark:bg-[#FF735C] dark:hover:bg-[#FF735C]/90 dark:focus:ring-[#FF735C]/50">
+        <button id="add-appliance-btn" class="p-2 text-sm font-semibold text-white bg-[#FF735C] rounded-lg hover:bg-[#FF735C]/90 focus:outline-none focus:ring-2 focus:ring-[#FF735C]/50 dark:bg-[#FF735C] dark:hover:bg-[#FF735C]/90 dark:focus:ring-[#FF735C]/50">
             Add more Appliance
         </button>
 
@@ -428,6 +390,192 @@
 
 
     <script src="../path/to/flowbite/dist/flowbite.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <!-- Function API dropdown VA  -->
+    <script>
+        // Fungsi untuk mengambil data dari API dan mengisi dropdown
+        async function loadDayaMaksimum() {
+            try {
+                // Ambil data dari API menggunakan axios
+                const response = await axios.get('http://localhost:8000/api/standar-listrik/index');
+                const data = response.data;
+
+                // Dapatkan elemen dropdown
+                const vaSelect = document.getElementById('va');
+
+                // Hapus opsi default "Select VA"
+                vaSelect.innerHTML = '<option selected>Select VA</option>';
+
+                // Tambahkan opsi dari data API
+                data.forEach(item => {
+                    const option = document.createElement('option');
+                    option.value = item.daya_maksimum;
+                    option.textContent = `${item.daya_maksimum} VA`;
+                    vaSelect.appendChild(option);
+                });
+            } catch (error) {
+                console.error('Error fetching daya maksimum data:', error);
+            }
+        }
+
+        // Panggil fungsi ketika halaman selesai dimuat
+        document.addEventListener('DOMContentLoaded', loadDayaMaksimum);
+    </script>
+
+    <!-- function API Appliance database  -->
+    <script>
+        async function loadCategories() {
+            try {
+                const response = await axios.get('http://localhost:8000/api/kategori/index');
+                const categories = response.data;
+
+                const houseTypeSelect = document.getElementById('house-type');
+                houseTypeSelect.innerHTML = '<option selected class="text-gray-500 dark:text-gray-400">Choose an appliance</option>';
+
+                categories.forEach(category => {
+                    const optgroup = document.createElement('optgroup');
+                    optgroup.label = category.nama_kategori; // Atur label dari nama kategori
+
+                    // Pastikan kategori memiliki perangkat listrik
+                    if (category.perangkat_listrik) {
+                        category.perangkat_listrik.forEach(perangkat => {
+                            const option = document.createElement('option');
+                            option.value = perangkat.id_perangkat; // Gunakan id perangkat sebagai nilai
+                            option.textContent = perangkat.nama_perangkat; // Gunakan nama perangkat sebagai teks
+                            option.className = 'text-gray-900 dark:text-gray-50';
+                            option.dataset.wattage = perangkat.daya; // Simpan daya dalam atribut data
+                            optgroup.appendChild(option);
+                        });
+                    }
+
+                    houseTypeSelect.appendChild(optgroup);
+                });
+
+                // Tambahkan event listener untuk dropdown perangkat
+                houseTypeSelect.addEventListener('change', (event) => {
+                    const selectedOption = event.target.options[event.target.selectedIndex];
+                    const wattage = selectedOption.dataset.wattage; // Ambil daya dari atribut data
+                    document.getElementById('wattage').value = wattage || ''; // Set wattage ke input, kosongkan jika tidak ada
+                });
+
+            } catch (error) {
+                console.error('Error fetching categories:', error);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', loadCategories);
+    </script>
+
+    <!-- function add more appliance & resert appliance  -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById("add-appliance-btn").addEventListener("click", function() {
+                // Ambil elemen container
+                const applianceContainer = document.getElementById("appliance-container");
+
+                // Clone elemen group yang pertama
+                const originalApplianceGroup = applianceContainer.querySelector(".appliance-group");
+                const newApplianceGroup = document.createElement("div");
+                newApplianceGroup.className = "appliance-group flex items-start gap-x-4";
+
+                // Clone hanya input dan select dari grup asli
+                const inputs = originalApplianceGroup.querySelectorAll("input, select");
+                inputs.forEach(input => {
+                    const clonedInput = input.cloneNode(true); // Clone elemen input
+
+                    // Bersihkan nilai input yang baru
+                    if (clonedInput.tagName === "SELECT") {
+                        clonedInput.selectedIndex = 0; // Reset select ke opsi pertama
+                    } else {
+                        clonedInput.value = ""; // Kosongkan input
+                    }
+
+                    // Buat ID baru untuk input yang di-kloning
+                    const uniqueId = input.id + "-" + (applianceContainer.children.length + 1);
+                    clonedInput.id = uniqueId;
+
+                    // Buat div wrapper baru untuk input
+                    const wrapper = document.createElement("div");
+                    wrapper.className = "max-w-xs"; // Set lebar sesuai yang diinginkan
+                    wrapper.appendChild(clonedInput);
+
+                    // Tambahkan elemen baru ke grup
+                    newApplianceGroup.appendChild(wrapper);
+                });
+
+                // Tambahkan tombol reset di grup baru
+                const resetButton = document.createElement("button");
+                resetButton.className = "p-2 text-sm font-semibold text-white bg-red-500 rounded-lg hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-500";
+
+                // Menambahkan ikon ke tombol reset
+                resetButton.innerHTML = '<i class="fas fa-trash"></i>'; // Menggunakan ikon trash dari Font Awesome
+
+                // Tambahkan event listener untuk tombol reset
+                resetButton.addEventListener("click", function() {
+                    // Menghapus grup appliance ini
+                    applianceContainer.removeChild(newApplianceGroup);
+                });
+
+                // Tambahkan tombol reset ke grup baru
+                newApplianceGroup.appendChild(resetButton);
+
+                // Tambahkan elemen grup baru ke dalam container
+                applianceContainer.appendChild(newApplianceGroup);
+
+                // Tambahkan event listener untuk dropdown perangkat yang baru
+                const newHouseTypeSelect = newApplianceGroup.querySelector("select"); // Ambil select dari grup baru
+                newHouseTypeSelect.addEventListener('change', (event) => {
+                    const selectedOption = event.target.options[event.target.selectedIndex];
+                    const wattage = selectedOption.dataset.wattage; // Ambil daya dari atribut data
+                    newApplianceGroup.querySelector('input[id^="wattage"]').value = wattage || ''; // Set wattage ke input
+                });
+            });
+        });
+    </script>
+
+    <!-- Function Reset All Appliance  -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Fungsi untuk mereset semua pilihan dan input
+            function resetApplianceInputs() {
+                // Menghapus semua grup appliance yang di-clone
+                const applianceContainer = document.getElementById("appliance-container");
+
+                // Menghapus semua grup appliance kecuali grup pertama
+                const applianceGroups = applianceContainer.querySelectorAll(".appliance-group");
+                applianceGroups.forEach((group, index) => {
+                    if (index !== 0) { // Jaga grup pertama tetap ada
+                        applianceContainer.removeChild(group); // Hapus grup yang di-clone
+                    } else {
+                        // Reset grup pertama
+                        const houseTypeSelect = group.querySelector("#house-type");
+                        const applianceCountInput = group.querySelector("#appliance-count");
+                        const wattageInput = group.querySelector("#wattage");
+                        const hoursPerDayInput = group.querySelector("#hours-per-day");
+                        const usePerMonthInput = group.querySelector("#use-per-month");
+
+                        if (houseTypeSelect) houseTypeSelect.selectedIndex = 0; // Reset dropdown perangkat
+                        if (applianceCountInput) applianceCountInput.value = ""; // Reset input jumlah perangkat
+                        if (wattageInput) wattageInput.value = ""; // Reset wattage
+                        if (hoursPerDayInput) hoursPerDayInput.value = ""; // Reset hours per day
+                        if (usePerMonthInput) usePerMonthInput.value = ""; // Reset use per month
+                    }
+                });
+
+                // Reset dropdown VA
+                const vaSelect = document.getElementById("va");
+                if (vaSelect) vaSelect.selectedIndex = 0; // Reset dropdown VA ke opsi pertama
+
+                // Reset cost display
+                const costDisplay = document.getElementById("cost");
+                if (costDisplay) costDisplay.value = "0.00"; // Reset cost display ke 0.00
+            }
+
+            // Event listener untuk tombol resetAppliance
+            document.getElementById("resetAppliance").addEventListener("click", resetApplianceInputs);
+        });
+    </script>
 </body>
 
 </html>
