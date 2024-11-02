@@ -22,71 +22,81 @@
 </div>
 
 <script>
-    // Fungsi untuk mengambil data kriteria dan mengisi form saat halaman dimuat
-    function fetchKriteriaData() {
+    document.addEventListener('DOMContentLoaded', function() {
+        // Ambil parameter ID dari URL
         const urlParams = new URLSearchParams(window.location.search);
         const idKriteria = urlParams.get('id_kriteria');
-        console.log('ID Kriteria:', idKriteria); // Log ID yang didapat
 
-        if (!idKriteria) {
-            alert('ID Kriteria tidak ditemukan.');
-            return;
+        // Fungsi untuk mengambil data kriteria berdasarkan ID
+
+        function fetchBobotKriteriaData(id) {
+            fetch(`http://localhost:8000/api/bobot-kriteria/show/${id}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Data Bobot Kriteria yang diterima:', data); // Log seluruh respons data
+
+                    // Perbarui pemeriksaan untuk nama kriteria
+                    if (data && data.id_kriteria && data.kriteria && data.bobot !== undefined) {
+                        document.getElementById('editKriteriaId').value = data.id_kriteria;
+                        document.getElementById('editNamaKriteria').value = data.kriteria; // Menggunakan 'data.kriteria' sekarang
+                        document.getElementById('editBobot').value = data.bobot;
+                    } else {
+                        console.error('Data tidak ditemukan atau format tidak sesuai:', data);
+                        alert('Data tidak ditemukan atau format tidak sesuai.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching data:', error);
+                    alert('Gagal mengambil data. Silakan periksa koneksi atau API.');
+                });
         }
 
-        axios.get(`http://localhost:8000/api/bobot-kriteria/show/${idKriteria}`)
-            .then(response => {
-                const kriteria = response.data;
-                document.getElementById('editKriteriaId').value = kriteria.id_kriteria;
-                document.getElementById('editNamaKriteria').value = kriteria.nama_kriteria;
-                document.getElementById('editBobot').value = kriteria.bobot;
-            })
-            .catch(error => {
-                console.error('Error fetching kriteria data:', error);
-                if (error.response) {
-                    console.log('Response data:', error.response.data);
-                    alert('Terjadi kesalahan: ' + error.response.data.message);
-                } else {
-                    alert('Gagal memuat data kriteria. Silakan coba lagi.');
-                }
-            });
-    }
-
-    // Menangani pengiriman form untuk mengupdate kriteria
-    document.getElementById('editCriteriaForm').addEventListener('submit', function(event) {
-        event.preventDefault(); // Mencegah pengiriman form default
-
-        // Mengambil data dari input
-        const idKriteria = document.getElementById('editKriteriaId').value;
-        const namaKriteria = document.getElementById('editNamaKriteria').value;
-        const bobot = document.getElementById('editBobot').value;
-
-        // Validasi input
-        if (!namaKriteria || !bobot) {
-            alert('Semua field harus diisi.');
-            return; // Hentikan jika ada yang kosong
+        // Panggil fungsi fetch untuk mengisi data form
+        if (idKriteria) {
+            fetchBobotKriteriaData(idKriteria);
         }
 
-        // Mengirimkan data ke API untuk mengupdate kriteria
-        axios.put(`http://localhost:8000/api/bobot-kriteria/update/${idKriteria}`, {
-                kriteria: namaKriteria,
-                bobot: parseFloat(bobot) // Pastikan ini adalah float
-            })
-            .then(function(response) {
-                // Menangani sukses
-                console.log(response.data);
-                alert('Kriteria berhasil diperbarui!');
-                window.location.href = '/admin/data-kriteria'; // Redirect ke halaman yang sesuai
-            })
-            .catch(function(error) {
-                console.error('Error saat memperbarui kriteria:', error);
-                if (error.response) {
-                    alert('Terjadi kesalahan: ' + error.response.data.message);
-                } else {
-                    alert('Terjadi kesalahan saat memperbarui kriteria.');
-                }
-            });
+        // Fungsi untuk mengupdate data kriteria
+        // Fungsi untuk mengupdate data kriteria
+        document.getElementById('editCriteriaForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Mencegah submit form secara default
+
+            // Ambil data dari form
+            const id = document.getElementById('editKriteriaId').value;
+            const namaKriteria = document.getElementById('editNamaKriteria').value;
+            const bobot = document.getElementById('editBobot').value;
+
+            // Kirim data ke API untuk update
+            fetch(`http://localhost:8000/api/bobot-kriteria/update/${id}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        kriteria: namaKriteria, // Ganti 'nama_kriteria' dengan 'kriteria'
+                        bobot: bobot
+                    })
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Error updating data');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    alert('Data berhasil diperbarui');
+                    // Redirect atau aksi lain setelah berhasil update
+                    window.location.href = '/admin/data-criteria';
+                })
+                .catch(error => {
+                    console.error('Error updating data:', error);
+                });
+        });
+
     });
-
-    // Panggil fungsi untuk mengambil data kriteria saat halaman dimuat
-    fetchKriteriaData();
 </script>

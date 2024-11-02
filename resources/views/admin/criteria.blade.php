@@ -58,7 +58,7 @@
                         <td class="px-6 py-3 text-center">${item.kriteria}</td>
                         <td class="px-6 py-3 text-center">${item.bobot}</td>
                         <td class="px-6 py-3 text-center">
-                            <button class="update-button text-blue-500 hover:text-blue-700 mr-2" data-id="${item.id}">
+                            <button class="update-button text-blue-500 hover:text-blue-700 mr-2" data-id="${item.id_kriteria}">
                                  <i class="fas fa-edit"></i>Update
                             </button>
                         </td>
@@ -71,7 +71,7 @@
                     updateButtons.forEach(button => {
                         button.addEventListener('click', function() {
                             const idBobotKriteria = this.getAttribute('data-id');
-                            window.location.href = `/admin/edit-criteria?id_kriteria=${idKriteria}`;
+                            window.location.href = `/admin/edit-criteria?id_kriteria=${idBobotKriteria}`;
                         });
                     });
                 })
