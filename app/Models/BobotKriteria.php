@@ -16,4 +16,5 @@ class BobotKriteria extends Model
         'kriteria',
         'bobot',
     ];
+    public $timestamps = false; 
 }
