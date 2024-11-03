@@ -14,8 +14,8 @@ class BobotKriteriaSeeder extends Seeder
     public function run(): void
     {
         DB::table('bobot_kriteria')->insert([
-            ['kriteria' => 'Daya', 'bobot' => 0.6],
-            ['kriteria' => 'Durasi', 'bobot' => 0.4],
+            ['kriteria' => 'Daya', 'bobot' => 0.5],
+            ['kriteria' => 'Durasi', 'bobot' => 0.5],
         ]);
     }
 }

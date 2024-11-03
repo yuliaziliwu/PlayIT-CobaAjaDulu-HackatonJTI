@@ -52,10 +52,10 @@
         <div class="max-w-screen-xl mx-auto p-8 flex flex-col md:flex-row gap-4">
             <div class="flex-1 flex flex-col items-start justify-center">
                 <p class="text-6xl md:text-7xl font-bold text-gray-700">
-                    Be wise, save power every <span style="color: #FF735D;">watt counts</span>
+                    Bijaklah, hemat energi setiap saat <span style="color: #FF735D;">Energi listrik sangat penting</span>
                 </p>
                 <p class="text-lg text-[#717171] mt-4">
-                    Small changes, big savings—lower your electricity consumption.
+                    Perubahan kecil, penghematan besar—kurangi konsumsi listrik Anda.
                 </p>
             </div>
 
@@ -71,13 +71,13 @@
                     <hr class="flex-grow border-t border-gray-300" />
                     <div class="text-center mx-4">
                         <span class="block text-2xl md:text-3xl font-semibold text-gray-700 leading-tight">
-                            Manage your entire energy
+                            Kelola seluruh konsumsi
                         </span>
-                        <span class="block text-2xl md:text-3xl font-semibold text-gray-700 leading-tight">consumption in a single system.</span>
+                        <span class="block text-2xl md:text-3xl font-semibold text-gray-700 leading-tight">energi Anda dalam satu sistem.</span>
                     </div>
                     <hr class="flex-grow border-t border-gray-300" />
                 </div>
-                <p class="text-[#717171] text-sm mt-3 text-center">Who is EcoSaver suitable for?</p>
+                <p class="text-[#717171] text-sm mt-3 text-center">Siapa yang cocok menggunakan EcoSaver?</p>
             </div>
 
             <!-- Row 2: Three Columns -->
@@ -86,32 +86,32 @@
                     <div class="text-2xl text-gray-700 text-center p-4">
                         <img src="images/Icon.svg" alt="Logo" class="mx-auto mb-4 w-20 h-20">
                         <div class="font-semibold">
-                            <span>Energy</span><br>
-                            <span>Awareness</span>
+                            <span>Kesadaran</span><br>
+                            <span>Energi</span>
                         </div>
                         <p class="text-[#717171] text-sm mt-0 md:mt-2">
-                            Discover the impact of various devices on your energy consumption and learn effective strategies to reduce waste.
+                            Temukan dampak berbagai perangkat pada konsumsi energi Anda dan pelajari strategi efektif untuk mengurangi limbah.
                         </p>
                     </div>
                     <div class="text-2xl text-gray-700 text-center p-4">
                         <img src="images/Icon 2.svg" alt="Logo" class="mx-auto mb-4 w-20 h-20"> <!-- Adjust size as needed -->
                         <div class="font-semibold">
-                            <span>Energy Optimization</span><br>
-                            <span>Simulation</span>
+                            <span>Simulasi</span><br>
+                            <span>Optimisasi Energi</span>
                         </div>
                         <p class="text-[#717171] text-sm mt-2">
-                            Simulate potential savings by reducing unnecessary energy usage.
+                            Simulasikan potensi penghematan dengan mengurangi penggunaan energi yang tidak perlu.
                         </p>
                     </div>
 
                     <div class="text-2xl text-gray-700 text-center p-4">
                         <img src="images/Icon 3.svg" alt="Logo" class="mx-auto mb-4 w-20 h-20">
                         <div class="font-semibold">
-                            <span>Efficiency</span><br>
-                            <span>Recommendations</span>
+                            <span>Rekomendasi</span><br>
+                            <span>Lebih Efisien</span>
                         </div>
                         <p class="text-[#717171] text-sm mt-2">
-                            Receive personalized tips to minimize energy waste and improve efficiency.
+                            Terima tips pribadi untuk meminimalkan limbah energi dan meningkatkan efisiensi.
                         </p>
                     </div>
                 </div>
@@ -126,13 +126,13 @@
             </div>
             <div class="flex-1 flex flex-col items-center md:items-start md:justify-center md:ml-12"> <!-- Menggunakan md:ml-8 untuk margin kiri pada layar lebar -->
                 <p class="text-3xl font-bold w-auto text-gray-700 text-center md:text-left">
-                    Wise decisions lead to savings
+                    Keputusan bijak mengarah pada penghematan
                 </p>
-                <p class="text-sm text-[#717171] mt-4 text-center md:text-left">
-                    Wise decisions lead to savings. By making informed choices about energy usage, you can significantly reduce your monthly bills while contributing to a more sustainable future. Every small decision, from using energy-efficient appliances to optimizing usage times, adds up to substantial savings over time. Choosing energy-efficient solutions not only saves you money but also helps preserve the environment for future generations.
+                <p class="text-sm text-justify text-[#717171] mt-4 md:text-left">
+                    Keputusan bijak mengarah pada penghematan. Dengan membuat pilihan yang tepat tentang penggunaan energi, Anda dapat secara signifikan mengurangi tagihan bulanan Anda sambil berkontribusi pada masa depan yang lebih berkelanjutan. Setiap keputusan kecil, mulai dari menggunakan peralatan hemat energi hingga mengoptimalkan waktu penggunaan, akan terakumulasi menjadi penghematan yang substansial seiring waktu. Memilih solusi hemat energi tidak hanya menghemat uang Anda tetapi juga membantu menjaga lingkungan untuk generasi mendatang.
                 </p>
                 <a href="#callculator" class="mt-4 mx-20 px-12 py-2 text-white bg-[#FF735C] rounded hover:bg-[#ff4f3a] focus:outline-none focus:ring-2 focus:ring-[#FF735C] focus:ring-opacity-50">
-                    Test Here
+                    Coba tes
                 </a>
             </div>
         </div>
@@ -145,10 +145,10 @@
         <div class="flex justify-center items-center p-4">
             <div class="text-center md:text-left">
                 <p class="text-3xl md:text-5xl font-bold text-gray-700">
-                    Partnerships with <br><span style="color: #FF735D;">Local Organizations</span>
+                    Kemitraan dengan <br><span style="color: #FF735D;">Organisasi Lokal</span>
                 </p>
                 <p class="text-xs md:text-sm text-[#717171] mt-2">
-                    We reached here with our hard work and dedication.
+                    Kami sampai di sini dengan kerja keras dan dedikasi kami.
                 </p>
             </div>
         </div>
@@ -161,10 +161,10 @@
                     <img src="images/Icon 4.svg" alt="Logo" class="w-10 h-10 md:w-12 md:h-12 mr-2">
                     <div class="text-center md:text-left">
                         <p class="text-xl md:text-2xl font-bold text-gray-700">
-                            2,245,341
+                            245,341
                         </p>
                         <p class="text-xs md:text-sm text-[#717171]">
-                            Member Usage
+                            Kunjungan
                         </p>
                     </div>
                 </div>
@@ -173,10 +173,10 @@
                     <img src="images/Icon 5.svg" alt="Logo" class="w-10 h-10 md:w-12 md:h-12 mr-2">
                     <div class="text-center md:text-left">
                         <p class="text-xl md:text-2xl font-bold text-gray-700">
-                            828,867
+                            5,828,867
                         </p>
                         <p class="text-xs md:text-sm text-[#717171]">
-                            Event Bookings
+                            Klik
                         </p>
                     </div>
                 </div>
@@ -185,9 +185,7 @@
             <!-- Row Kedua -->
             <div class="bg-gray-100 p-4">
                 <p class="text-xs md:text-sm text-center text-[#717171] italic">
-                    "Our app is ready to support any educational seminar on household energy savings. With interactive
-                    features and informative resources, we are committed to helping participants understand the
-                    importance of energy efficiency and how to apply it in everyday life."
+                    "Aplikasi kami siap mendukung seminar pendidikan tentang penghematan energi rumah tangga. Dengan fitur interaktif dan sumber daya yang informatif, kami berkomitmen untuk membantu peserta memahami pentingnya efisiensi energi dan cara menerapkannya dalam kehidupan sehari-hari."
                 </p>
             </div>
         </div>
@@ -197,8 +195,8 @@
         <div class="flex flex-col md:flex-row items-center">
             <hr class="flex-grow border-t border-gray-300" />
             <div class="text-center mx-4">
-                <span class="block text-2xl md:text-3xl font-semibold text-gray-700 leading-tight">Manage your energy</span>
-                <span class="block text-2xl md:text-3xl font-semibold text-gray-700 leading-tight">consumption here</span>
+                <span class="block text-2xl md:text-3xl font-semibold text-gray-700 leading-tight">Kelola konsumsi energi</span>
+                <span class="block text-2xl md:text-3xl font-semibold text-gray-700 leading-tight">Anda di sini</span>
             </div>
             <hr class="flex-grow border-t border-gray-300" />
         </div>
@@ -207,14 +205,14 @@
     <div class="grid grid-cols-3 items-start gap-x-4 md:gap-x-3 mx-14 mt-2">
         <!-- VA Selection -->
         <div class="max-w-xs">
-            <label for="va" class="block mb-2 text-sm font-semibold text-gray-900 dark:text-white">Select VA</label>
+            <label for="va" class="block mb-2 text-sm font-semibold text-gray-900 dark:text-white">Pilih Ampere Rumah</label>
             <select id="va" class="block w-full p-2 mb-4 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
             </select>
         </div>
 
         <!-- Cost Display -->
         <div class="max-w-xs md:justify-center">
-            <label for="cost" class="block mb-2 text-sm font-semibold text-gray-900 dark:text-white">Cost per kWh</label>
+            <label for="cost" class="block mb-2 text-sm font-semibold text-gray-900 dark:text-white">Tarif per kWh</label>
             <input type="text" value="0.00" id="cost" class="block w-full p-2 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-200 dark:bg-gray-700 dark:border-gray-600 dark:text-white" disabled>
         </div>
 
@@ -230,47 +228,47 @@
         <div class="appliance-group flex items-start gap-x-2 md:gap-x-8 md:ml-4 md:mt-2 md:mb-2">
             <!-- House Type Selection -->
             <div class="max-w-xs">
-                <label for="house-type" class="block mb-2 text-xs md:text-sm font-semibold text-gray-900 dark:text-white">Appliance</label>
+                <label for="house-type" class="block mb-2 text-xs md:text-sm font-semibold text-gray-900 dark:text-white">Perangkat</label>
                 <select id="house-type" class="block w-full p-2 mb-4 text-xs md:text-sm border rounded-lg bg-white focus:ring-2 focus:ring-gray-300 focus:border-gray-300 hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-50 dark:focus:ring-gray-600 dark:focus:border-gray-600">
-                    <option selected class="text-gray-500 dark:text-gray-400">Choose an appliance</option>
+                    <option selected class="text-gray-500 dark:text-gray-400">Pilih perangkat</option>
                     <!-- Optgroups dan opsi akan diisi secara dinamis di sini -->
                 </select>
             </div>
     
             <!-- Number of Appliances -->
             <div class="md:max-w-xs">
-                <label for="appliance-count" class="block mb-2 text-xs md:text-sm font-semibold text-gray-900 dark:text-white">Appliances</label>
-                <input type="number" id="appliance-count" class="block w-full p-2 mb-4 text-xs md:text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter count" min="1">
+                <label for="appliance-count" class="block mb-2 text-xs md:text-sm font-semibold text-gray-900 dark:text-white">Jumlah</label>
+                <input type="number" id="appliance-count" class="block w-full p-2 mb-4 text-xs md:text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Masukkan jumlah" min="1">
             </div>
     
             <!-- Wattage (W) - Disabled Input -->
             <div class="md:max-w-xs">
-                <label for="wattage" class="block mb-2 text-xs md:text-sm font-semibold text-gray-900 dark:text-white">Wattage(W)</label>
-                <input type="number" id="wattage" class="block w-full p-2 mb-4 text-xs md:text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" placeholder="Auto-fill wattage" min="1">
+                <label for="wattage" class="block mb-2 text-xs md:text-sm font-semibold text-gray-900 dark:text-white">Daya perangkat (W)</label>
+                <input type="number" id="wattage" class="block w-full p-2 mb-4 text-xs md:text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white" placeholder="Daya perangkat" min="1">
             </div>
     
             <!-- Hours per Day -->
             <div class="md:max-w-xs">
-                <label for="hours-per-day" class="block mb-2 text-xs md:text-sm font-semibold text-gray-900 dark:text-white">Hrs/Day</label>
-                <input type="number" id="hours-per-day" class="block w-full p-2 mb-4 text-xs md:text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Hours per day" min="0" max="24">
+                <label for="hours-per-day" class="block mb-2 text-xs md:text-sm font-semibold text-gray-900 dark:text-white">Penggunaan per Hari (Jam)</label>
+                <input type="number" id="hours-per-day" class="block w-full p-2 mb-4 text-xs md:text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Durasi penggunaan" min="1" max="24">
             </div>
     
             <!-- Use per Month -->
             <div class="md:max-w-xs">
-                <label for="use-per-month" class="block mb-2 text-xs md:text-sm font-semibold text-gray-900 dark:text-white">Use/Month</label>
-                <input type="number" id="use-per-month" class="block w-full p-2 mb-4 text-xs md:text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Times per month" min="0">
+                <label for="use-per-month" class="block mb-2 text-xs md:text-sm font-semibold text-gray-900 dark:text-white">Frekuensi per bulan (Hari)</label>
+                <input type="number" id="use-per-month" class="block w-full p-2 mb-4 text-xs md:text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Frekuensi per bulan" min="1" max="30">
             </div>
         </div>
     </div>
     
     <!-- Buttons Section -->
     <div class="md:ml-14 md:mr-2 ml-14 mr-12 mt-2 flex gap-x-4">
-        <button id="add-appliance-btn" class="p-2 text-xs md:text-sm font-semibold text-white bg-[#FF735C] rounded-lg hover:bg-[#FF735C]/90 focus:outline-none focus:ring-2 focus:ring-[#FF735C]/50 dark:bg-[#FF735C] dark:hover:bg-[#FF735C]/90 dark:focus:ring-[#FF735C]/50">
-            Add more Appliance
+        <button id="add-appliance-btn" class="p-2 text-xs md:text-sm font-semibold  text-[#FF735C] border border-[#FF735C] rounded-lg hover:bg-[#FF735C] hover:text-white focus:outline-none focus:ring-2 focus:ring-[#FF735C]/50 ">
+            Tambah perangkat
         </button>
 
-        <button id="calculate-btn" class="p-2 text-sm font-semibold text-[#FF735C] border border-[#FF735C] rounded-lg hover:bg-[#FF735C] hover:text-white focus:outline-none focus:ring-2 focus:ring-[#FF735C]/50">
-            Click Here For Recommendation Usage
+        <button id="calculate-btn" class="p-2 text-sm font-semibold text-white bg-[#FF735C] rounded-lg hover:bg-[#FF735C]/90 focus:outline-none focus:ring-2 focus:ring-[#FF735C]/50 dark:bg-[#FF735C] dark:hover:bg-[#FF735C]/90 dark:focus:ring-[#FF735C]/50">
+            Klik disini untuk hasil analisis
         </button>
     </div>
 
@@ -278,7 +276,7 @@
     <div class="max-w-screen-xl mx-auto mt-5">
         <div class="flex items-center">
             <hr class="flex-grow border-t border-gray-300" />
-            <span class="mx-4 text-3xl font-semibold text-gray-700 leading-tight">Recommendation Usage</span>
+            <span class="mx-4 text-3xl font-semibold text-gray-700 leading-tight">Hasil Analisis</span>
             <hr class="flex-grow border-t border-gray-300" />
         </div>
         <div class="flex flex-wrap gap-x-4 mt-10">
@@ -433,7 +431,7 @@
                 const categories = response.data;
 
                 const houseTypeSelect = document.getElementById('house-type');
-                houseTypeSelect.innerHTML = '<option selected class="text-gray-500 dark:text-gray-400">Choose an appliance</option>';
+                houseTypeSelect.innerHTML = '<option selected class="text-gray-500 dark:text-gray-400">Pilih perangkat</option>';
 
                 categories.forEach(category => {
                     const optgroup = document.createElement('optgroup');
@@ -500,7 +498,7 @@
 
                     // Buat div wrapper baru untuk input
                     const wrapper = document.createElement("div");
-                    wrapper.className = "max-w-xs"; // Set lebar sesuai yang diinginkan
+                    wrapper.className = "md:max-w-xs"; // Set lebar sesuai yang diinginkan
                     wrapper.appendChild(clonedInput);
 
                     // Tambahkan elemen baru ke grup
